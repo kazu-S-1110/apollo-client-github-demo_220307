@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-const resolvers = {
+export const resolvers = {
   Mutation: {
     changeSearchText: (_, { text }, { cache }) => {
       const query = gql`
@@ -18,5 +18,3 @@ const resolvers = {
     },
   },
 };
-
-export default resolvers;

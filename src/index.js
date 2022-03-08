@@ -9,7 +9,9 @@ import {
   useQuery,
   gql,
   createHttpLink,
+  ApolloLink,
 } from '@apollo/client';
+import { resolvers } from './resolvers';
 
 const cache = new InMemoryCache();
 
@@ -20,7 +22,9 @@ const httpLink = createHttpLink({
   },
 });
 
-const client = new ApolloClient({ link: httpLink, cache });
+const link = ApolloLink.from([httpLink]);
+
+const client = new ApolloClient({ link, cache, resolvers });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
