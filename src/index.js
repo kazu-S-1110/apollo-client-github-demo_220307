@@ -26,6 +26,13 @@ const link = ApolloLink.from([httpLink]);
 
 const client = new ApolloClient({ link, cache, resolvers });
 
+cache.writeData({
+  data: {
+    searchText: '',
+    __typename: 'State',
+  },
+});
+
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
