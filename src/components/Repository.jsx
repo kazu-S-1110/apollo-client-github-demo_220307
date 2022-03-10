@@ -13,7 +13,7 @@ const RepositoryWrapper = styled(({ children, ...props }) => (
   padding: 10px;
 `;
 
-const Repository = ({ url, name, starCount }) => {
+export const Repository = ({ url, name, starCount }) => {
   return (
     <RepositoryWrapper>
       <Typography>
